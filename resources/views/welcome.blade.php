@@ -5,6 +5,14 @@
                 <h1 class="display-1">
                     THE AULAB POST
                 </h1>
+
+                @if (session('message'))
+                
+                    <div class="alert alert-success">
+                        {{session('message')}}
+                    </div>
+                    
+                @endif
             </div>
         </div>
     </div>
