@@ -13,6 +13,10 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('article.create')}}"> Inserisci un articolo </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('article.index')}}"> Tutti gli articoli </a>
+          </li>
        
 
           @auth
