@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#">
+        <img src="{{ asset('logo-aulab-hackademy-black.png') }}" alt="Logo" style="height: 48px;">  
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,20 +19,55 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{route('article.index')}}"> Tutti gli articoli </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{route('careers')}}"> Lavora con noi </a>
+          </li>
        
 
           @auth
+
+          @if (Auth::user()->is_revisor)
+
+          <li>
+            <a class="dropdown-item" href="{{route('admin.dashboard')}}">
+
+               Dashboard Revisor
+
+            </a>
+          </li>
+          
+        @endif
+
+
+          @if (Auth::user()->is_admin)
+
+            <li>
+              <a class="dropdown-item" href="{{route('admin.dashboard')}}">
+
+                 Dashboard Admin
+
+              </a>
+            </li>
+            
+          @endif
 
          
             
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
               Ciao {{ Auth::user()->name}}
+
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item"  href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();"> Logout </a>
+                <a class="dropdown-item"  href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">
+                  
+                   Logout
+                
+                </a>
               </li>
               <form action="{{route('logout')}}" method="POST" id="form-logout" class="d-none">
 
