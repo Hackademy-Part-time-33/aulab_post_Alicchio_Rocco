@@ -3,14 +3,14 @@
 <div class="container-fluid p-5 bg-secondary-subtle text-center">
     <div class="row justify-content-center">
       <div class="col-12">
-        <h1 class="display-1">Lavora con noi</h1>
+        <h1 class="display-1 title">Lavora con noi</h1>
       </div>
     </div>
   </div>
   <div class="container my-5">
     <div class="row">
       <div class="col-12 col-md-6">
-        <form action="{{route('careers.submit')}}" method="POST" class="card p-5 shadow">
+        <form action="{{route('careers.submit')}}" method="POST" class="card p-5 shadow custom-form">
 
             @csrf
 
@@ -58,16 +58,16 @@
             @enderror
           </div>
           <div class="mt-3 d-flex justify-content-center">
-            <button type="submit" class="btn btn-outline-secondary">Invia candidatura</button>
+            <button type="submit" class="btn custom-btn1">Invia candidatura</button>
           </div>
         </form>
       </div>
       <div class="col-12 col-md-6 p-5">
-        <h2>Lavora come amministratore</h2>
+        <h2 class="title1">Lavora come amministratore</h2>
         <p>Scegliendo di lavorare come amministratore, ti occuperai di gestire le richieste di lavoro e di aggiungere e modificare le categorie.</p>
-        <h2>Lavora come revisore</h2>
+        <h2 class="title1">Lavora come revisore</h2>
         <p>Scegliendo di lavorare come revisore, deciderai se un articolo può essere pubblicato o meno in piattaforma.</p>
-        <h2>Lavora come redattore</h2>
+        <h2 class="title1">Lavora come redattore</h2>
         <p>Scegliendo di lavorare come redattore, potrai scrivere gli articoli che saranno pubblicati.</p>
       </div>
     </div>

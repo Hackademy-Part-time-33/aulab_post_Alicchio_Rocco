@@ -2,14 +2,14 @@
     <div class="container-fluid p-5 bg-secondary-subtle text-center">
         <div class="row justify-content-center">
             <div class="col-12">
-                <h1 class="display-1">Inserisci un articolo</h1>
+                <h1 class="display-1 title">Inserisci un articolo</h1>
             </div>
         </div>
     </div>
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form class="card p-5 shadow" enctype="multipart/form-data" method="POST" action="{{ route('article.store') }}">
+                <form class="card p-5 shadow custom-form" enctype="multipart/form-data" method="POST" action="{{ route('article.store') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Titolo</label>
@@ -52,11 +52,12 @@
                         @enderror
                     </div>
                     <div class="mt-3 d-flex justify-content-center flex-column align-items-center">
-                        <button type="submit" class="btn btn-outline-secondary">Inserisci articolo</button>
-                        <a href="{{ route('homepage') }}" class="text-secondary mt-2">Torna alla home</a>
+                        <button type="submit" class="btn custom-btn">Inserisci articolo</button>
+                        <a href="{{ route('homepage') }}" class="text-primary mt-2 custom-link">Torna alla home</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </x-Layout>
+

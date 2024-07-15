@@ -16,7 +16,7 @@
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
-                <form class="p-5 border rounded" action="{{route('register')}}"
+                <form class="p-5 border rounded custom-form" action="{{route('register')}}"
                     method="POST">
                     @csrf
     
@@ -71,8 +71,8 @@
                     </div>
     
                     <button type="submit"
-                        class="btn btn-dark">registrati</button>
-                    <a href="{{ route('login')}}" class="btn btn-outline-dark">Gia
+                        class="btn btn-dark custom-btn1">registrati</button>
+                    <a href="{{ route('login')}}" class="btn btn-outline-dark custom-btn1">Gia
                         registrato?</a>
                 </form>
             </div>

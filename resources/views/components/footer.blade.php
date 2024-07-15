@@ -97,13 +97,13 @@
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+            <p><i class="fas fa-home me-3"></i> Gravina in Puglia, BA 70024, IT</p>
             <p>
               <i class="fas fa-envelope me-3"></i>
-              info@example.com
+              rockorocko.alicchio@gmail.com
             </p>
-            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            <p><i class="fas fa-phone me-3"></i> + 39 3278829149 </p>
+            <p><i class="fas fa-print me-3"></i> + 39 325452415</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -114,8 +114,15 @@
   
     <!-- Copyright -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2021 Copyright:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+
+      © 2024 Copyright:
+
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">
+
+        MDBootstrap.com
+
+      </a>
+
     </div>
     <!-- Copyright -->
   </footer>
