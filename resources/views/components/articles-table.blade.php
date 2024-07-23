@@ -23,7 +23,7 @@
                     <a href="{{route('revisor.undoArticle', $article)}}" class="btn custom-btn1">Riporta in revisione</a>
                     @endif
                     
-                    @if (Auth::user() && Auth::user()->is_revisor)
+                    @if (Auth::user() && (Auth::user()->is_revisor || Auth::user()->is_admin))
                     <form action="{{ route('revisor.acceptArticle', $article) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn custom-btnAccetta">Accetta l'articolo</button>

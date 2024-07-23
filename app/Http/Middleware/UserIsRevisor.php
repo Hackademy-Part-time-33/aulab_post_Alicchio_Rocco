@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class UserIsRevisor
 {
@@ -16,9 +16,9 @@ class UserIsRevisor
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user() && Auth::user()->is_revisor){
+        if (Auth::user() && (Auth::user()->is_revisor || Auth::user()->is_admin)) {
             return $next($request);
         }
-        return redirect(route('homepage'))->with('alert', 'Non sei autorizzato');
+        return redirect(route('homepage'))->with('alert','Non sei autorizzato');
     }
 }

@@ -8,6 +8,23 @@
                     <p class="card-subtitle text-muted mb-2">{{ $article->subtitle }}</p>
                     <p class="card-text">{{ $article->body }}</p>
                     <p class="small text-muted my-0">
+                        @if ($article->category)
+                                    
+                                
+                        <p class="card-text"> 
+                        Categoria: 
+                        <a href="{{route('article.byCategory', $article->category)}}" class="text-capitalize text-muted"> {{ $article->category->name }} </a>
+
+                        </p>
+
+                     @else
+
+                        <p class="small text-muted">
+                             Nessuna categoria 
+                        </p>
+
+                     @endif
+
                         @foreach ($article->tags as $tag)
 
                             #{{ $tag->name }}

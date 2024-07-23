@@ -37,6 +37,13 @@ public function undoArticle(Article $article){
         return redirect(route('revisor.dashboard'))->with('message', 'Articolo rimandato in revisione');
     }
 
+// public function undoArticle(Article $article)
+// {
+//     // Logica per riportare l'articolo in revisione
+//     $article->is_accepted = null;
+//     $article->save();
 
+//     return redirect()->back()->with('message', 'L\'articolo è stato riportato in revisione.');
+// }
     
 }

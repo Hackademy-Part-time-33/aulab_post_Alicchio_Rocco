@@ -16,7 +16,13 @@
     
 } */
 
+body {
+  background-color: #fafafa;
+}
 
+.custom-navbar {
+  background-color: #FFC72C;
+}
 
 .navbar-nav .nav-link, .navbar-nav .dropdown-item {
   transition: color 0.3s ease, font-weight 0.3s ease, text-shadow 0.3s ease;
@@ -33,28 +39,27 @@
 }
 
 .navbar-nav .nav-link:hover i, .navbar-nav .dropdown-item:hover i {
-  color: yellow;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .title {
   font-size: 3em;
-  color: yellow;
+  color: rgb(0, 0, 0);
   font-weight: bold;
-  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   text-align: center;
   margin: 20px 0;
 }
 
 .custom-form {
-  background-color: #f8f9fa;
+  background-color: #000000;
   border: 2px solid #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .custom-form .form-label {
-  color: yellow;
+  color: #FFC72C;
   font-weight: bold;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
@@ -64,7 +69,7 @@
 }
 
 .custom-btn1, .custom-btn-outline {
-  color: yellow;
+  color: #FFC72C;
   background-color: #000;
   border: 2px solid #000;
   font-weight: bold;
@@ -74,7 +79,7 @@
 
 .custom-btn1:hover, .custom-btn-outline:hover {
   color: #000;
-  background-color: yellow;
+  background-color: #FFC72C;
   text-shadow: none;
 }
 
@@ -84,13 +89,13 @@
 
 .custom-btn-outline:hover {
   color: #000;
-  background-color: #ffff00;
+  background-color: #FFC72C;
   text-shadow: none;
 }
 
 .title {
   font-size: 3em;
-  color: #ffff00; /* Colore scuro per il titolo */
+  color: #000000; /* Colore scuro per il titolo */
   font-weight: bold;
   text-align: center;
   margin: 20px 0;
@@ -99,11 +104,11 @@
 
 .title1 {
   font-size: 2em;
-  color: #ffff00; /* Colore scuro per il titolo */
+  color: #000000; /* Colore scuro per il titolo */
   font-weight: bold;
   text-align: center;
   margin: 20px 0;
-  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+ 
 
   
 }
@@ -114,7 +119,7 @@
   }
 
 .custom-form .form-label {
-  color: #ffff00; /* Colore scuro per le etichette */
+  color: #FFC72C; /* Colore scuro per le etichette */
   font-weight: bold;
 }
 
@@ -124,7 +129,7 @@
 
 .custom-btn {
   color: #ffffff;
-  background-color: #007bff; /* Colore blu per il bottone */
+  background-color: #FFC72C; /* Colore blu per il bottone */
   border: 1px solid #000000;
   font-weight: bold;
   transition: color 0.3s ease, background-color 0.3s ease;
@@ -132,22 +137,22 @@
 
 .custom-btn:hover {
   color: #ffffff;
-  background-color: #0056b3; /* Colore blu scuro per il bottone al passaggio del mouse */
+  background-color: #c48f00; /* Colore blu scuro per il bottone al passaggio del mouse */
 }
 
 .custom-link {
-  color: #007bff; /* Colore blu per il link */
+  color: #FFC72C; /* Colore blu per il link */
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .custom-link:hover {
-  color: #0056b3; /* Colore blu scuro per il link al passaggio del mouse */
+  color: #FFC72C; /* Colore blu scuro per il link al passaggio del mouse */
 }
 
 .custom-btnAccetta {
-  color: yellow;
-  background-color: #000;
+  color: #FFC72C;
+  background-color: rgb(0, 255, 42);
   border: 2px solid #000;
   font-weight: bold;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -155,24 +160,24 @@
 }
 
 .custom-btnAccetta:hover {
-  color: #ffffff;
+  color: #000000;
   background-color: rgb(0, 255, 42);
   text-shadow: none;
+  
 }
 
 .custom-btnRifiuta {
-  color: yellow;
-  background-color: #000;
+  color: #FFC72C;
+  background-color: rgb(255, 0, 0);
   border: 2px solid #000;
   font-weight: bold;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   transition: color 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .custom-btnRifiuta:hover {
-  color: #ffffff;
+  color: #000000;
   background-color: rgb(255, 0, 0);
-  text-shadow: none;
+
 }
 /* 
 .btn-outline-secondary{
@@ -202,3 +207,23 @@
 
 
 
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 1000;
+  font-style: normal;
+}
+
+.testo {
+  font-size: 5em;
+  font-weight: bold;
+  background: linear-gradient(90deg, #FFC72C, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: colorChange 5s infinite;
+}
+
+.presentation-image {
+  width: 100%;
+  height: auto;
+}
