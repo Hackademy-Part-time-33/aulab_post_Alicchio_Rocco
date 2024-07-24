@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller implements HasMiddleware
 {
-
+    
     public static function middleware()
     {
         return [
@@ -24,25 +24,25 @@ class ArticleController extends Controller implements HasMiddleware
         ];
     }
     /**
-     * Display a listing of the resource.
-     */
+    * Display a listing of the resource.
+    */
     public function index()
     {
         $articles = Article::where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('welcome', compact('articles'));
     }
-
+    
     /**
-     * Show the form for creating a new resource.
-     */
+    * Show the form for creating a new resource.
+    */
     public function create()
     {
         return view('article.create');
     }
-
+    
     /**
-     * Store a newly created resource in storage.
-     */
+    * Store a newly created resource in storage.
+    */
     public function store(Request $request)
     {
         $request->validate([
@@ -53,7 +53,7 @@ class ArticleController extends Controller implements HasMiddleware
             'category' => 'required',
             'tags' => 'required'
         ]);
-
+        
         $article = Article::create([
             'title' => $request->title,
             'subtitle' => $request->subtitle,
@@ -62,34 +62,34 @@ class ArticleController extends Controller implements HasMiddleware
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
         ]);
-
+        
         $tags = explode(',', $request->tags);
-
+        
         foreach ($tags as $i => $tag) {
             $tags[$i] = trim($tag);
         }
-
+        
         foreach ($tags as $tag) {
             $newTag = Tag::updateOrCreate([
                 'name' => strtolower($tag),
             ]);
             $article->tags()->attach($newTag);
         }
-
+        
         return redirect(route('homepage'))->with('message', 'Articolo creato con successo');
     }
-
+    
     /**
-     * Display the specified resource.
-     */
+    * Display the specified resource.
+    */
     public function show(Article $article)
     {
         return view('article.show', compact('article'));
     }
-
+    
     /**
-     * Show the form for editing the specified resource.
-     */
+    * Show the form for editing the specified resource.
+    */
     public function edit(Article $article)
     {
         if(Auth::user()->id == $article->user_id){
@@ -97,10 +97,10 @@ class ArticleController extends Controller implements HasMiddleware
         }
         return redirect()->route('homepage')->with('alert','Accesso non consentito');
     }
-
+    
     /**
-     * Update the specified resource in storage.
-     */
+    * Update the specified resource in storage.
+    */
     public function update(Request $request, Article $article)
     {
         // Validazione dei dati
@@ -112,7 +112,7 @@ class ArticleController extends Controller implements HasMiddleware
             'category_id' => 'required',
             'tags' => 'required'
         ]);
-    
+        
         // Aggiornamento dell'articolo
         $article->update([
             'title' => $request->title,
@@ -120,62 +120,71 @@ class ArticleController extends Controller implements HasMiddleware
             'body' => $request->body,
             'category_id' => $request->category,
         ]);
-    
+        
         // Gestione dell'immagine
-        if ($request->image) {
+        if ($request->hasFile('image')) {
             Storage::delete($article->image);
             $article->update([
                 'image' => $request->file('image')->store('public/images')
             ]);
             
         }
-    
+        
         // Gestione dei tag
         $tags = explode(',', $request->tags);
-
+        
         foreach($tags as $i => $tag){
             $tags[$i] = trim($tag);
             
         }
-
+        
         $newTags = [];
         
-    
-       
+        
+        
         foreach ($tags as $tag) {
             $newTag = Tag::updateOrCreate([
                 'name' => strtolower($tag)
             ]);
-
+            
             $newTags[] = $newTag->id;
         }
-    
+        
         $article->tags()->sync($newTags);
-    
+        
+        $article->is_accepted = null;
+        $article->save();
+        
         // Redirect con messaggio di successo
         return redirect()->route('writer.dashboard')->with('message', 'Articolo modificato con successo');
     }
     
-
+    
     /**
-     * Remove the specified resource from storage.
-     */
+    * Remove the specified resource from storage.
+    */
     public function destroy(Article $article)
     {
+        
+        // Cancella l'immagine associata se esiste
+        if ($article->image) {
+            Storage::delete($article->image);
+        }
+        
         foreach ($article->tags as $tag){
             $article->tags()->detach($tag);
         }
         $article->delete();
         return redirect()->back()->with('message', 'Articolo cancellato con successo');
     }
-
+    
     public function byCategory(Category $category){
         $articles = $category->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('welcome', compact('articles'));
     }
-
-   
-
+    
+    
+    
     
     public function byUser(User $user)
     {
@@ -183,11 +192,11 @@ class ArticleController extends Controller implements HasMiddleware
         $articles = $user->articles()->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('welcome', compact('articles'));
     }
-
+    
     public function articleSearch(Request $request){
         $query = $request->input('query');
         $articles = Article::search($query)->where('is_accepted', true)->orderBy('created_at', 'desc')->get();
         return view('article.search-index', compact('articles', 'query'));
-
+        
     }
 }
